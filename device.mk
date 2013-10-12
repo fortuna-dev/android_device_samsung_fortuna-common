@@ -53,6 +53,7 @@ PRODUCT_COPY_FILES += \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/system/etc/init.crda.sh:system/etc/init.crda.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
     $(LOCAL_PATH)/rootdir/ueventd.qcom.rc:root/ueventd.qcom.rc \
@@ -77,6 +78,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
     $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
+# CRDA
+PRODUCT_PACKAGES += \
+    crda \
+    regdbdump \
+    regulatory.bin \
+    linville.key.pub.pem
 
 PRODUCT_PACKAGES += \
     badblocks \
