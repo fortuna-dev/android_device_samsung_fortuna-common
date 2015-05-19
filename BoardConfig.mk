@@ -24,7 +24,7 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-LOCAL_PATH := device/samsung/fortuna3g
+DEVICE_PATH := device/samsung/fortuna3g
 
 # inherit from the proprietary version
 -include vendor/samsung/fortuna-common/BoardConfigVendor.mk
@@ -60,7 +60,7 @@ endif
 MALLOC_IMPL := dlmalloc
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916-common
 TARGET_KERNEL_CONFIG := cyanogenmod_fortuna3g_defconfig
 BOARD_KERNEL_BASE := 0x80000000
@@ -86,7 +86,7 @@ BOARD_VOLD_MAX_PARTITIONS := 28
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
@@ -115,7 +115,7 @@ AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 BOARD_USES_ALSA_AUDIO := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -127,7 +127,7 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Graphic
 BOARD_USES_QCOM_HARDWARE := true
-BOARD_EGL_CFG := $(LOCAL_PATH)/configs/egl.cfg
+BOARD_EGL_CFG := $(DEVICE_PATH)/configs/egl.cfg
 BOARD_USES_LEGACY_MMAP := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
@@ -151,11 +151,11 @@ BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 TARGET_POWERHAL_VARIANT :=
 
 # RIL
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
+BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril/
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
