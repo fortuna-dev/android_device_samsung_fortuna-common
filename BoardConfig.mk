@@ -45,7 +45,7 @@ TARGET_CPU_SMP := true
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/fortunave-common
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8916-common
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
 TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_fortuna3g_eur_defconfig
