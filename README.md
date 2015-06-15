@@ -1,4 +1,4 @@
-Device configuration for Samsung Galaxy Grand Prime SM-G530H (fortunave3g)
+Device configuration for Samsung Galaxy Grand Prime SM-G530H (fortuna3g)
 
 ===================================== 
 

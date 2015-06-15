@@ -85,7 +85,7 @@ import java.util.Random;
  *
  * {@hide}
  */
-public class FortunaveRIL extends RIL implements CommandsInterface {
+public class FortunaRIL extends RIL implements CommandsInterface {
 
     private static final int RIL_REQUEST_DIAL_EMERGENCY = 10016;
     private static final int RIL_UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED = 1036;
@@ -99,7 +99,7 @@ public class FortunaveRIL extends RIL implements CommandsInterface {
 
     private Message mPendingGetSimStatus;
 
-    public FortunaveRIL(Context context, int networkMode, int cdmaSubscription,Integer instanceId) {
+    public FortunaRIL(Context context, int networkMode, int cdmaSubscription,Integer instanceId) {
         super(context, networkMode, cdmaSubscription,  instanceId);
         mQANElements = 6;
     }
