@@ -136,6 +136,9 @@ EXTENDED_FONT_FOOTPRINT := true
 # Healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
+# PowerHAL
+TARGET_POWERHAL_VARIANT :=
+
 # RIL
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
