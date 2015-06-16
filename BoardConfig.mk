@@ -47,7 +47,7 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 # Legacy MMAP for pre-lollipop blobs
 BOARD_USES_LEGACY_MMAP := true
 
-# Enable dex-preoptimization to speed up first boot sequence
+# Dex-preoptimization
 ifeq ($(HOST_OS),linux)
   ifeq ($(TARGET_BUILD_VARIANT),userdebug)
    ifeq ($(WITH_DEXPREOPT),)
@@ -55,6 +55,9 @@ ifeq ($(HOST_OS),linux)
    endif
   endif
 endif
+
+# Use dlmalloc instead of jemalloc for mallocs
+MALLOC_IMPL := dlmalloc
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916-common
