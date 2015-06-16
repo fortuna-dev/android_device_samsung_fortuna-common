@@ -133,6 +133,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.enable_boot_charger_mode=1 \
     ro.product.locale.language=en \
     ro.product.locale.region=GB
 
