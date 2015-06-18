@@ -61,9 +61,7 @@ MALLOC_IMPL := dlmalloc
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916-common
-TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_KERNEL_CONFIG := msm8916_sec_defconfig
-TARGET_KERNEL_VARIANT_CONFIG := msm8916_sec_fortuna3g_eur_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_fortuna3g_defconfig
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
