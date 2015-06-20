@@ -13,7 +13,10 @@
 # limitations under the License.
 
 LOCAL_PATH := device/samsung/fortuna3g
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay
 
 # This device is hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -72,12 +75,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:system/usr/keylayout/synaptics_rmi4_i2c.kl
 
-# GPS config
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+# Audio Module
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.primary.msm8916 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler
 
 # CRDA
 PRODUCT_PACKAGES += \
@@ -87,23 +91,6 @@ PRODUCT_PACKAGES += \
     linville.key.pub.pem
 
 PRODUCT_PACKAGES += \
-    badblocks \
-    e2fsck \
-    mke2fs \
-    mke2fs.conf \
-    resize2fs \
-    tune2fs \
-    make_ext4fs \
-    setup_fs
-
-PRODUCT_PACKAGES += \
-    fsck.f2fs \
-    mkfs.f2fs
-
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
-PRODUCT_PACKAGES += \
     libexifa \
     libjpega
 
@@ -111,18 +98,21 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Ebtables
+# Display
 PRODUCT_PACKAGES += \
-    ebtables \
-    ethertypes \
-    libebtc
+    copybit.msm8916 \
+    gralloc.msm8916 \
+    hwcomposer.msm8916 \
+    libtinyxml \
+    memtrack.msm8916
 
-# Wifi config
-PRODUCT_COPY_FILES += \
-    kernel/samsung/msm8916-common/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/samsung/msm8916-common/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+# File System
+PRODUCT_PACKAGES += \
+    e2fsck \
+    make_ext4fs \
+    mkfs.exfat \
+    mkfs.f2fs \
+    setup_fs
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -131,11 +121,59 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.debuggable=1 \
     persist.service.adb.enable=1
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
+# GPS config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/flp.conf:system/etc/flp.conf \
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/configs/sap.conf:system/etc/sap.conf \
+    $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
+
+# Keystore
+PRODUCT_PACKAGES += \
+    keystore.msm8916
+
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.cwm.enable_key_repeat=true \
+    ro.cwm.repeatable_keys=114,115 \
     ro.enable_boot_charger_mode=1 \
     ro.product.locale.language=en \
     ro.product.locale.region=GB
+
+# OMX
+PRODUCT_PACKAGES += \
+    libdashplayer \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libstagefrighthw \
+    qcmediaplayer
+
+PRODUCT_BOOT_JARS += \
+    qcmediaplayer
+
+# Thermal Engine
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
+
+# USB
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
+# Wifi config
+PRODUCT_COPY_FILES += \
+    kernel/samsung/msm8916-common/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/samsung/msm8916-common/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 $(call inherit-product-if-exists, vendor/samsung/fortunave-common/fortunave-common-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
