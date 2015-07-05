@@ -61,6 +61,7 @@ MALLOC_IMPL := dlmalloc
 
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
+TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8916-common
 TARGET_KERNEL_CONFIG := cyanogenmod_fortuna3g_defconfig
 BOARD_KERNEL_BASE := 0x80000000
