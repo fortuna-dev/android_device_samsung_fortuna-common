@@ -192,6 +192,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     qcmediaplayer
 
+# RIL
+PRODUCT_PACKAGES += \
+    libxml2
+
 # Thermal Engine
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8916.conf:system/etc/thermal-engine-8916.conf
