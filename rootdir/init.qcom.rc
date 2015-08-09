@@ -32,20 +32,16 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
 
 on init
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/media_rw/extSdCard 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveA 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveB 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveC 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveD 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveE 0700 media_rw media_rw
-    mkdir /mnt/media_rw/UsbDriveF 0700 media_rw media_rw
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
+
+    # External storage directories
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
 
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
@@ -61,14 +57,8 @@ on init
     symlink /storage/emulated/legacy /storage/sdcard0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
-    # map "real" external storages paths also in same way. backwards compatibility.
-    symlink /storage/extSdCard /mnt/extSdCard
-    symlink /storage/UsbDriveA /mnt/UsbDriveA
-    symlink /storage/UsbDriveB /mnt/UsbDriveB
-    symlink /storage/UsbDriveC /mnt/UsbDriveC
-    symlink /storage/UsbDriveD /mnt/UsbDriveD
-    symlink /storage/UsbDriveE /mnt/UsbDriveE
-    symlink /storage/UsbDriveF /mnt/UsbDriveF
+on fs
+    mount_all fstab.qcom
 
     export SECONDARY_STORAGE /storage/extSdCard
     
@@ -410,17 +400,6 @@ on property:bluetooth.startbtsnoop=true
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
-service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
-
-service qcom-c_main-sh /system/bin/sh /init.class_main.sh
-    class main
-    user root
-    disabled
-    oneshot
-
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
     start config_bluetooth
@@ -472,13 +451,6 @@ service start_hci_filter /system/bin/wcnss_filter
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
-    oneshot
-
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
     oneshot
 
 on property:bluetooth.hciattach=true
@@ -744,12 +716,6 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
 service wifi-sdio-on /system/bin/sh /system/etc/init.qcom.sdio.sh
     class late_start
     group wifi inet
@@ -804,22 +770,6 @@ service battery_monitor /system/bin/battery_monitor
     group system
     disabled
 
-#service ril-daemon1 /system/bin/rild -c 1
-#    class main
-#    socket rild1 stream 660 root radio
-#    socket rild-debug1 stream 660 radio system
-#    user root
-#    disabled
-#    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
-
-#service ril-daemon2 /system/bin/rild -c 2
-#    class main
-#    socket rild2 stream 660 root radio
-#    socket rild-debug2 stream 660 radio system
-#    user root
-#    disabled
-#    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
-
 service profiler_daemon /system/bin/profiler_daemon
     class late_start
     user root
@@ -832,17 +782,6 @@ service sdcard /system/bin/sdcard -u 1023 -g 1023 -l -r /data/media /mnt/shell/e
     oneshot
 
 service fuse_extSdCard /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d -f /mnt/media_rw/extSdCard /storage/extSdCard
-    class late_start
-    disabled
-    oneshot
-
-service usb_uicc_enable /system/bin/sh /system/etc/init.qcom.uicc.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service fuse_UsbDriveA /system/bin/sdcard -u 1023 -g 1023 -d -f /mnt/media_rw/UsbDriveA /storage/UsbDriveA
     class late_start
     disabled
     oneshot
@@ -864,38 +803,6 @@ service profiler_daemon /system/bin/profiler_daemon
     disabled
     oneshot
 
-service fuse_UsbDriveC /system/bin/sdcard -u 1023 -g 1023 -d -f /mnt/media_rw/UsbDriveC /storage/UsbDriveC
-    class late_start
-    disabled
-    oneshot
-
-service fuse_UsbDriveD /system/bin/sdcard -u 1023 -g 1023 -d -f /mnt/media_rw/UsbDriveD /storage/UsbDriveD
-    class late_start
-    disabled
-    oneshot
-
-service fuse_UsbDriveE /system/bin/sdcard -u 1023 -g 1023 -d -f /mnt/media_rw/UsbDriveE /storage/UsbDriveE
-    class late_start
-    disabled
-    oneshot
-
-service fuse_UsbDriveF /system/bin/sdcard -u 1023 -g 1023 -d -f /mnt/media_rw/UsbDriveF /storage/UsbDriveF
-    class late_start
-    disabled
-    oneshot
-
-
-# Binding fuse mount point to /storage/emulated/legacy
-#on property:init.svc.sdcard=running
-#    wait /mnt/shell/emulated/0
-#    mount none /mnt/shell/emulated/0 /storage/emulated/legacy bind
-
-service hcidump /system/bin/sh /system/etc/hcidump.sh
-    user bluetooth
-    group bluetooth system net_bt_admin net_admin
-    disabled
-    oneshot
-
 service ssr_diag /system/bin/ssr_diag
     class late_start
     user system
@@ -906,11 +813,6 @@ service fastmmi /system/bin/mmi
     user root
     group root
     disabled
-
-service fastmmisrv /system/bin/sh /init.qcom.factory.sh
-    user root
-    disabled
-    oneshot
 
 on ffbm
     start fastmmisrv
