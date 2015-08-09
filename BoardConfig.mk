@@ -26,6 +26,9 @@
 
 DEVICE_PATH := device/samsung/fortuna3g
 
+# Inherit from samsung qcom-common
+-include device/samsung/qcom-common/BoardConfigCommon.mk
+
 # inherit from the proprietary version
 -include vendor/samsung/fortuna-common/BoardConfigVendor.mk
 
@@ -36,12 +39,7 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_OTA_ASSERT_DEVICE := fortuna3g,SM-G530H
 
 # Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := cortex-a53
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Legacy MMAP for pre-lollipop blobs
 BOARD_USES_LEGACY_MMAP := true
@@ -87,11 +85,9 @@ BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 28
 
 # Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_LARGE_FILESYSTEM := true
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Audio
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
@@ -109,7 +105,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Graphic
-BOARD_USES_QCOM_HARDWARE := true
 BOARD_EGL_CFG := $(DEVICE_PATH)/configs/egl.cfg
 BOARD_USES_LEGACY_MMAP := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -117,9 +112,6 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
-TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_ION := true
-USE_OPENGL_RENDERER := true
 
 # FM radio
 AUDIO_FEATURE_ENABLED_FM := true
@@ -128,9 +120,6 @@ BOARD_USES_SEPERATED_FM := true
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
-
-# Healthd HAL
-BOARD_HAL_STATIC_LIBRARIES := libhealthd.qcom
 
 # PowerHAL
 TARGET_POWERHAL_VARIANT :=

@@ -120,10 +120,6 @@ PRODUCT_PACKAGES += \
     libexifa \
     libjpega
 
-# Charger images
-PRODUCT_PACKAGES += \
-    charger_res_images
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8916 \
@@ -142,10 +138,8 @@ PRODUCT_PACKAGES += \
 # File System
 PRODUCT_PACKAGES += \
     e2fsck \
-    make_ext4fs \
     mkfs.exfat \
-    mkfs.f2fs \
-    setup_fs
+    mkfs.f2fs
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \

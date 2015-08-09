@@ -4,6 +4,10 @@
     "target_path": "device/qcom/common"
   },
   {
+    "repository": "android_device_samsung_qcom-common",
+    "target_path": "device/samsung/qcom/common"
+  },
+  {
     "repository": "android_external_mm-dash",
     "target_path": "external/mm-dash"
   },
