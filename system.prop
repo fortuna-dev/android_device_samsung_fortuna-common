@@ -50,7 +50,7 @@ ro.use_data_netmgrd=false
 telephony.lteOnCdmaDevice=0
 
 # USB
-persist.sys.usb.config=mtp
+persist.sys.usb.config=mtp,adb
 ro.sys.usb.default.config=mtp
 
 # Misc
