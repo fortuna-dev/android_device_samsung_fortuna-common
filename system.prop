@@ -59,5 +59,4 @@ ro.chipname=MSM8216
 ro.product_ship=true
 ro.vold.umsdirtyratio=20
 wifi.interface=wlan0
-ro.enable_boot_charger_mode
-
+ro.enable_boot_charger_mode=1
