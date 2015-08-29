@@ -6,7 +6,7 @@
 # Currently we dont have e2fsck compiled. So fs check would failed.
 
 #<src>                                       <mnt_point>          <type>  <mnt_flags and options>                                                                         <fs_mgr_flags>
-/dev/block/mmcblk0p24                        /system              ext4    ro,errors=panic                                                                                 wait       
+/dev/block/mmcblk0p24                        /system              ext4    ro,errors=panic                                                                                 wait
 /dev/block/mmcblk0p27                        /data                ext4    noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic                          wait,check,encryptable=footer,length=-16384
 /dev/block/mmcblk0p25                        /cache               ext4    noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic                          wait,check
 /dev/block/mmcblk0p13                        /efs                 ext4    noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic                          wait
@@ -17,4 +17,5 @@
 /dev/block/mmcblk0p17                        /recovery            emmc    defaults    defaults
 
 # VOLD
-/devices/soc.0/7864900.sdhci/mmc_host/mmc1   auto                 auto    defaults    voldmanaged=extSdCard:auto,noemulatedsd
+/devices/soc.0/7864900.sdhci/mmc_host/mmc*   auto                 auto    defaults    voldmanaged=extSdCard:auto,noemulatedsd
+/devices/platform/msm_hsusb_host/usb*        auto                 auto    defaults    voldmanaged=usbdisk:auto
