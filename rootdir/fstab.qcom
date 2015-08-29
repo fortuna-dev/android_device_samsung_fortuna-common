@@ -17,5 +17,5 @@
 /dev/block/bootdevice/by-name/recovery       /recovery            emmc    defaults    defaults
 
 # VOLD
-/devices/soc.0/7864900.sdhci/mmc_host/mmc1   auto                 auto    defaults		voldmanaged=extSdCard:auto,noemulatedsd
-
+/devices/soc.0/7864900.sdhci/mmc_host/mmc*   auto                 auto    defaults    voldmanaged=extSdCard:auto,noemulatedsd
+/devices/platform/msm_hsusb_host/usb*        auto                 auto    defaults    voldmanaged=usbdisk:auto
