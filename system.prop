@@ -16,6 +16,9 @@ DEVICE_PROVISIONED=1
 ril.subscription.types=NV,RUIM
 ro.telephony.ril_class=FortunaRIL
 
+# Art
+dalvik.vm.dex2oat-flags=--no-watch-dog
+
 # Audio
 af.resampler.quality=4
 audio.offload.gapless.enabled=true
