@@ -128,7 +128,21 @@ BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril/
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    bluetooth_loader.te \
+    bootanim.te \
+    healthd.te \
+    file.te \
+    qseecomd.te \
+    surfaceflinger.te \
+    system_server.te \
+    wcnss_service.te \
+    file_contexts \
+    property_contexts
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
