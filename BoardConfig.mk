@@ -33,13 +33,23 @@ DEVICE_PATH := device/samsung/fortuna3g
 -include vendor/samsung/fortuna-common/BoardConfigVendor.mk
 
 # Platform
-TARGET_BOARD_PLATFORM := msm8916
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
-TARGET_BOOTLOADER_BOARD_NAME := MSM8916
+TARGET_BOARD_PLATFORM 				:= MSM8916
+TARGET_BOOTLOADER_BOARD_NAME 			:= msm8916
+TARGET_BOARD_PLATFORM_GPU 			:= Adreno-306
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION 		:= true
 TARGET_OTA_ASSERT_DEVICE := fortuna3g,SM-G530H
 
 # Architecture
-TARGET_CPU_VARIANT := cortex-a53
+TARGET_ARCH 					:= arm
+TARGET_ARCH_VARIANT 				:= armv7-a-neon
+TARGET_CPU_VARIANT 				:= cortex-a53
+TARGET_CPU_ABI 					:= armeabi-v7a
+TARGET_CPU_ABI2 				:= armeabi
+ARCH_ARM_HAVE_NEON				:= true
+ARCH_ARM_HAVE_VFP 				:= true
+ARCH_ARM_HAVE_TLS_REGISTER 			:= true
+
+WITH_DEXPREOPT 					:= true
 
 # Legacy MMAP for pre-lollipop blobs
 BOARD_USES_LEGACY_MMAP := true
