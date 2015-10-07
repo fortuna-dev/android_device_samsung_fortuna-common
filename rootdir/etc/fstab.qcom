@@ -18,5 +18,4 @@
 
 # VOLD
 /devices/soc.0/7864900.sdhci/mmc_host/mmc*   auto                 auto    defaults    voldmanaged=extSdCard:auto,noemulatedsd
-/devices/platform/msm_hsusb_host/usb*        auto                 auto    defaults    voldmanaged=usbdisk:auto,noemulatedsd
-
+/devices/platform/msm_hsusb_host/usb*        auto                 auto    defaults    voldmanaged=usbdisk:auto
