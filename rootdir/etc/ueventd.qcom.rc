@@ -131,6 +131,7 @@
 /dev/msm_wmapro           0660   system     audio
 /dev/msm_amrnb            0660   system     audio
 /dev/msm_amrwb            0660   system     audio
+/dev/msm_amrwb_in         0660   system     audio
 /dev/msm_amrwbplus        0660   system     audio
 /dev/msm_aac              0660   system     audio
 /dev/msm_multi_aac        0660   system     audio
@@ -148,9 +149,11 @@
 /dev/msm_preproc_ctl      0660   system     audio
 /dev/msm_rtac             0660   system     audio
 /dev/msm_voicememo        0660   system     audio
+/dev/msm_sps              0660   system     audio
 /dev/radio0               0640   fm_radio   fm_radio
 /dev/smd3                 0660   bluetooth  net_bt_stack
 /dev/smd2                 0660   bluetooth  net_bt_stack
+/dev/ttyHSL0              0660   radio      system
 /dev/ttyHSL1              0660   system     system
 /dev/ttyHS1               0660   system     system
 /dev/mdm                  0660   system     radio
@@ -158,17 +161,17 @@
 /dev/sdio_tty_ciq_00      0660   system     system
 /dev/tty_sdio_00          0660   system     system
 /dev/ttyGS0               0660   system     system
-/dev/i2c-5                0660   media       media
+/dev/i2c-5                0660   media      media
 /dev/voice_svc            0660   system     audio
 
 # DVB devices
-/dev/dvb/adapter0/demux*  0440   media       media
-/dev/dvb/adapter0/dvr*    0660   media       media
-/dev/dvb/adapter0/video*  0660   media       media
+/dev/dvb/adapter0/demux*  0440   media      media
+/dev/dvb/adapter0/dvr*    0660   media      media
+/dev/dvb/adapter0/video*  0660   media      media
 
 # Broadcast devices
-/dev/tsc_mux0             0660   media       media
-/dev/tsc_ci0              0660   media       media
+/dev/tsc_mux0             0660   media      media
+/dev/tsc_ci0              0660   media      media
 
 # sensors
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
@@ -200,9 +203,6 @@
 # wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
-#nfc permissions
-/dev/nfc-nci              0660    nfc         nfc
-/dev/assd                 0660    nfc         nfc
 
 # UIO devices
 /dev/uio0                 0660   system     system
@@ -217,16 +217,3 @@
 
 # Ramdump devices
 /dev/ramdump*             0640   system     system
-
-#cpufreq_governor
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/above_hispeed_delay    0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/go_hispeed_load        0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/timer_rate             0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/hispeed_freq           0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/io_is_busy             0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/target_loads           0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/min_sample_time        0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/sampling_down_factor   0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/lpm_disable_freq       0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/use_migration_notif    0660  system system
-/sys/devices/system/cpu/cpu*	cpufreq/interactive/use_sched_load         0660  system system

@@ -73,12 +73,6 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
-
 # Media configuration
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -130,13 +124,14 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.qcom.bt.sh \
     init.qcom.coex.sh \
-    init.qcom.fm.sh
+    init.qcom.fm.sh \
+    init.sec.boot.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
+    init.qcom.power.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
-    init.target.rc \
     ueventd.qcom.rc
 
 # FM radio module
@@ -187,10 +182,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libmm-qcamera \
     camera.msm8916
-
-# DTB tool
-PRODUCT_PACKAGES += \
-    dtbToolCM
 
 # GPS HAL
 PRODUCT_PACKAGES += \
@@ -250,6 +241,9 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
+
+# samsung qcom-common
+$(call inherit-product, device/samsung/qcom-common/qcom-common.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/fortuna-common/fortuna-common-vendor.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
