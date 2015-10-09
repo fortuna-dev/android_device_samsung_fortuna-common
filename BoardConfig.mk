@@ -150,11 +150,21 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     bluetooth_loader.te \
-    healthd.te \
+    file.te \
+    file_contexts \
+    mediaserver.te \
+    mm-qcamerad.te \
+    property.te \
+    property_contexts \
     qseecomd.te \
+    rild.te \
     surfaceflinger.te \
-    wcnss_service.te \
-    property_contexts
+    system_app.te \
+    system_server.te \
+    time_daemon.te \
+    ueventd.te \
+    vold.te \
+    wcnss_service.te
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
