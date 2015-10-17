@@ -156,7 +156,6 @@ BOARD_SEPOLICY_UNION += \
     mm-qcamerad.te \
     property.te \
     property_contexts \
-    qseecomd.te \
     rild.te \
     surfaceflinger.te \
     system_app.te \
