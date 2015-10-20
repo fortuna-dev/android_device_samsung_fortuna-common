@@ -1,7 +1,7 @@
 #!/bin/sh
 
 VENDOR=samsung
-DEVICE=fortunave-common
+DEVICE=fortuna-common
 
 BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
 

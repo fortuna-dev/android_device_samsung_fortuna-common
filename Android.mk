@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),fortuna3g)
+ifeq ($(TARGET_DEVICE),fortunave3g)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
