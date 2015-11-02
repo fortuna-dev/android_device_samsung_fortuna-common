@@ -70,19 +70,6 @@ $(KM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(KM_SYMLINKS)
 
-# MLDAP
-MLDAP_IMAGES := \
-    mldap.b00 mldap.b01 mldap.b02 mldap.b03 mldap.mdt
-
-MLDAP_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(MLDAP_IMAGES)))
-$(MLDAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "MLDAP firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(MLDAP_SYMLINKS)
-
 # Modem
 MODEM_IMAGES := \
     modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 \
@@ -100,6 +87,19 @@ $(MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(MODEM_SYMLINKS)
 
+# PLAYREAD
+PLAYREADY_IMAGES := \
+    playread.b00 playread.b01 playread.b02 playread.b03 playread.mdt
+
+PLAYREADY_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(PLAYREADY_IMAGES)))
+$(PLAYREADY_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Playready firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(PLAYREADY_SYMLINKS)
+
 # PROV
 PROV_IMAGES := \
     prov.b00 prov.b01 prov.b02 prov.b03 prov.mtd \
@@ -112,19 +112,6 @@ $(PROV_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(PROV_SYMLINKS)
-
-# SECSTOR
-SECSTOR_IMAGES := \
-    sec_stor.b00 sec_stor.b01 sec_stor.b02 sec_stor.b03 sec_stor.mdt
-
-SECSTOR_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SECSTOR_IMAGES)))
-$(SECSTOR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
-	@echo "Secstor firmware link: $@"
-	@mkdir -p $(dir $@)
-	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(SECSTOR_SYMLINKS)
 
 # Reactive
 REACT_IMAGES := \
@@ -139,6 +126,19 @@ $(REACT_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 
 ALL_DEFAULT_INSTALLED_MODULES += $(REACT_SYMLINKS)
 
+# SECSTOR
+SECSTOR_IMAGES := \
+    sec_stor.b00 sec_stor.b01 sec_stor.b02 sec_stor.b03 sec_stor.mdt
+
+SECSTOR_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SECSTOR_IMAGES)))
+$(SECSTOR_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "Secstor firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SECSTOR_SYMLINKS)
+
 # SKM
 SKM_IMAGES := \
     skm.b00 skm.b01 skm.b02 skm.b03 skm.mdt
@@ -151,6 +151,19 @@ $(SKM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	$(hide) ln -sf /firmware/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(SKM_SYMLINKS)
+
+# SKMM
+SKMM_TA_IMAGES := \
+    skmm_ta.b00 skmm_ta.b01 skmm_ta.b02 skmm_ta.b03 skmm_ta.mdt
+
+SKMM_TA_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(SKMM_TA_IMAGES)))
+$(SKMM_TA_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
+	@echo "SKMM firmware link: $@"
+	@mkdir -p $(dir $@)
+	@rm -rf $@
+	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+
+ALL_DEFAULT_INSTALLED_MODULES += $(SKMM_TA_SYMLINKS)
 
 # SSHDCPAP
 SSHDCPAP_IMAGES := \
