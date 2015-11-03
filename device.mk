@@ -110,10 +110,6 @@ PRODUCT_PACKAGES += \
     regulatory.bin \
     linville.key.pub.pem
 
-PRODUCT_PACKAGES += \
-    libexifa \
-    libjpega
-
 # TinyAlsa utils
 PRODUCT_PACKAGES += \
     tinyplay \
