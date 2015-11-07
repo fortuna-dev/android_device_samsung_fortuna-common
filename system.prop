@@ -1,5 +1,3 @@
-# system.prop for fortunave3g
-
 # RIL
 rild.libpath=/system/lib/libsec-ril.so
 rild.libargs=-d /dev/smd0

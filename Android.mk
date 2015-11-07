@@ -14,8 +14,9 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),fortunave3g)
+SAMSUNG_TARGETS := fortuna3g fortunave3g
 
+ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 # CMNLIB
