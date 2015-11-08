@@ -126,6 +126,7 @@ key 103   DPAD_UP
 key 104   PAGE_UP
 key 105   DPAD_LEFT
 key 106   DPAD_RIGHT
+#key 107 (CHN FOLDER MODEL)
 key 107   MOVE_END
 key 108   DPAD_DOWN
 key 109   PAGE_DOWN
@@ -135,7 +136,7 @@ key 111   FORWARD_DEL
 key 113   VOLUME_MUTE
 key 114   VOLUME_DOWN
 key 115   VOLUME_UP
-key 116   POWER             WAKE
+key 116   POWER
 key 117   NUMPAD_EQUALS
 # key 118 "KEY_KPPLUSMINUS"
 key 119   BREAK
@@ -161,8 +162,8 @@ key 128   MEDIA_STOP
 key 139   MENU
 key 140   CALCULATOR
 # key 141 "KEY_SETUP"
-key 142   POWER             WAKE
-key 143   POWER             WAKE
+key 142   SLEEP
+key 143   WAKEUP
 # key 144 "KEY_FILE"
 # key 145 "KEY_SENDFILE"
 # key 146 "KEY_DELETEFILE"
@@ -171,7 +172,7 @@ key 143   POWER             WAKE
 # key 149 "KEY_PROG2"
 key 150   EXPLORER
 # key 151 "KEY_MSDOS"
-key 152   POWER             WAKE
+key 152   POWER
 # key 153 "KEY_DIRECTION"
 # key 154 "KEY_CYCLEWINDOWS"
 key 155   ENVELOPE
@@ -192,7 +193,7 @@ key 169   CALL
 # key 170 "KEY_ISO"
 key 171   MUSIC
 #input_fw added wake attribute for home
-key 172   HOME		        WAKE  
+key 172   HOME
 # key 173 "KEY_REFRESH"
 # key 174 "KEY_EXIT"
 # key 175 "KEY_MOVE"
@@ -221,8 +222,8 @@ key 180   NUMPAD_RIGHT_PAREN
 # key 198 (undefined)
 # key 199 (undefined)
 # input_fw for voice wakeup
-key 198   VOICE_WAKEUP_LPSD         WAKE
-key 199   VOICE_WAKEUP         WAKE
+key 198   VOICE_WAKEUP_LPSD
+key 199   VOICE_WAKEUP
 key 200   MEDIA_PLAY
 key 201   MEDIA_PAUSE
 # key 202 "KEY_PROG3"
@@ -251,12 +252,8 @@ key 224   BRIGHTNESS_DOWN
 key 225   BRIGHTNESS_UP
 key 226   HEADSETHOOK
 
-# samsung dummy key (common)
-key 249   DUMMY_HOME1
-key 250   DUMMY_HOME2
-key 251   DUMMY_MENU
-key 252   DUMMY_HOME
-key 253   DUMMY_BACK
+# samsung 
+key 252   USER
 
 # samsung
 key 254   APP_SWITCH
@@ -385,6 +382,17 @@ key 429   CONTACTS
 # key 450 "KEY_INS_LINE"
 # key 451 "KEY_DEL_LINE"
 
+key 452   CAM_QUICK_REAR
+key 453   CAM_QUICK_FRONT
+key 454   2ND_SCREEN_WAKEUP
+
+# key 455 used for blackscreenUI
+# key 456 KEY_BLACK_UI_QUICKAPP_ACCESS
+# key 457 KEY_BLACK_UI_DIRECT_INDICATOR
+
+# input_fw for swipe gestures from sides, used for wakeup
+key 458 SIDE_GESTURE_RIGHT
+key 459 SIDE_GESTURE_LEFT
 
 key 464   FUNCTION
 key 465   ESCAPE            FUNCTION
@@ -418,11 +426,22 @@ key 484   B                 FUNCTION
 # key 503 KEY_BRL_DOT7
 # key 504 KEY_BRL_DOT8
 
-key 523	POUND
 key 522	STAR
+key 523	POUND
 
 # samsung camera
 key 528   FOCUS
+
+# samsung DMB
+key 539   DMB_ANT_OPEN
+key 540   DMB_ANT_CLOSE
+
+#key 544 NETWORK_SEL (CHN FOLDER MODEL)
+#key 545 3G          (CHN FOLDER MODEL)
+
+#key 576 don't use (specific value used by camera project) - refer to InputReader.cpp
+
+key 582   VOICE_ASSIST
 
 # Keys defined by HID usages
 key usage 0x0c006F BRIGHTNESS_UP
@@ -443,3 +462,16 @@ axis 0x09 GAS
 axis 0x0a BRAKE
 axis 0x10 HAT_X
 axis 0x11 HAT_Y
+
+# LEDs
+led 0x00 NUM_LOCK
+led 0x01 CAPS_LOCK
+led 0x02 SCROLL_LOCK
+led 0x03 COMPOSE
+led 0x04 KANA
+led 0x05 SLEEP
+led 0x06 SUSPEND
+led 0x07 MUTE
+led 0x08 MISC
+led 0x09 MAIL
+led 0x0a CHARGING
