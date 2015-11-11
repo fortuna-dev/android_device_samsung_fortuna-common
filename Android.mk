@@ -14,7 +14,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-SAMSUNG_TARGETS := fortuna3g fortunave3g
+SAMSUNG_TARGETS := fortuna3g fortunave3g fortunatmo
 
 ifneq ($(filter $(SAMSUNG_TARGETS),$(TARGET_DEVICE)),)
 include $(call all-makefiles-under,$(LOCAL_PATH))
