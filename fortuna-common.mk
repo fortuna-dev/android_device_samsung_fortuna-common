@@ -18,6 +18,9 @@ LOCAL_PATH := device/samsung/fortuna-common
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
 
+# System properties
+-include $(LOCAL_PATH)/system_prop.mk
+
 # This device is hdpi
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
