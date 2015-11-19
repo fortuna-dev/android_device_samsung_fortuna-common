@@ -133,6 +133,9 @@ TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_QCOM_MEDIA_VARIANT := caf
 TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 
+#Add support for firmare upgrade on 8916
+HAVE_SYNAPTICS_I2C_RMI4_FW_UPGRADE := true
+
 # Enable HW based full disk encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
