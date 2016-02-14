@@ -160,9 +160,11 @@ BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
 BOARD_SEPOLICY_UNION += \
+    bluetooth.te \
     bluetooth_loader.te \
     file.te \
     file_contexts \
+    kernel.te \
     mediaserver.te \
     mm-qcamerad.te \
     property.te \
