@@ -128,8 +128,8 @@
     <ctl name="Voip Dtx Mode" value="0" />
 
     <ctl name="TTY Mode" value="Off" />
-	
-	<ctl name="MICBIAS CAPLESS Switch" value="0" />
+
+    <ctl name="MICBIAS CAPLESS Switch" value="0" />
 
     <!-- IIR -->
     <ctl name="IIR1 Band1" id ="0" value="268435456" />
@@ -552,7 +552,7 @@
     <!-- TX part -->
     <path name="main-mic">
         <ctl name="DEC1 MUX" value="ADC1" />
-		<ctl name="MICBIAS CAPLESS Switch" value="1" />
+        <ctl name="MICBIAS CAPLESS Switch" value="1" />
     </path>
 
     <path name="sub-mic">
@@ -570,7 +570,7 @@
         <ctl name="DEC1 MUX" value="ADC2" />
         <ctl name="ADC2 MUX" value="INP2" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
-		<ctl name="MICBIAS CAPLESS Switch" value="0" />
+        <ctl name="MICBIAS CAPLESS Switch" value="0" />
     </path>
 
     <path name="main-sub-mic">
@@ -629,7 +629,7 @@
 
     <path name="speaker">
         <path name="spk" />
-        <ctl name="RX3 Digital Volume" value="82" />
+        <ctl name="RX3 Digital Volume" value="79" />
     </path>
 
     <path name="headset">
@@ -656,7 +656,7 @@
         <path name="spk-ear" />
         <ctl name="RX1 Digital Volume" value="56" />
         <ctl name="RX2 Digital Volume" value="56" />
-        <ctl name="RX3 Digital Volume" value="82" />
+        <ctl name="RX3 Digital Volume" value="79" />
         <ctl name="EAR PA Gain" value="POS_1P5_DB" />	
     </path>
 
@@ -680,13 +680,13 @@
 
     <path name="fm-speaker">
         <path name="spk" />
-        <ctl name="RX3 Digital Volume" value="71" />
+        <ctl name="RX3 Digital Volume" value="76" />
     </path>	
 
     <path name="fm-headset">
         <path name="ear" />
-        <ctl name="RX1 Digital Volume" value="75" />
-        <ctl name="RX2 Digital Volume" value="75" />
+        <ctl name="RX1 Digital Volume" value="84" />
+        <ctl name="RX2 Digital Volume" value="84" />
         <ctl name="EAR PA Gain" value="POS_1P5_DB" />
     </path>
 
@@ -868,7 +868,7 @@
 
     <path name="voice-call-speaker">
         <path name="spk" />
-        <ctl name="RX3 Digital Volume" value="82" />
+        <ctl name="RX3 Digital Volume" value="79" />
     </path>
 
     <path name="voice-call-speaker-extra-vol">
@@ -924,7 +924,7 @@
 
     <path name="voice-call-headset-mic">
         <path name="ear-mic" />
-        <ctl name="DEC1 Volume" value="94" />
+        <ctl name="DEC1 Volume" value="84" />
         <ctl name="ADC2 Volume" value="4" />
     </path>
 
