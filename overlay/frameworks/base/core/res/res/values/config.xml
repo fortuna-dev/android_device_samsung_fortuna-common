@@ -66,14 +66,6 @@
     </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         USB interfaces.  If the device doesn't want to support tething over USB this should
-         be empty.  An example would be "usb.*" -->
-    <string-array name="config_tether_bluetooth_regexs">
-        <item>bnep\\d</item>
-        <item>bt-pan</item>
-    </string-array>
-
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
          Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
          should be empty.  An example would be "softap.*" -->
     <string-array translatable="false" name="config_tether_wifi_regexs">
@@ -97,7 +89,6 @@
         <item>4</item>
         <item>5</item>
         <item>7</item>
-        <item>9</item>
     </integer-array>
 
     <!-- Vibrator pattern for feedback about a long screen/key press -->
@@ -202,10 +193,6 @@
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
     <integer name="config_longPressOnAppSwitchBehavior">1</integer>
-
-    <!-- Boolean indicating if current platform supports bluetooth wide band
-         speech -->
-    <bool name="config_bluetooth_wide_band_speech">false</bool>
 
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
