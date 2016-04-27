@@ -170,7 +170,6 @@ BOARD_SEPOLICY_UNION += \
     property.te \
     property_contexts \
     rild.te \
-    surfaceflinger.te \
     system_app.te \
     system_server.te \
     time_daemon.te \
