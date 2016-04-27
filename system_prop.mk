@@ -110,5 +110,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
     ro.chipname=MSM8216 \
     ro.product_ship=true \
-    ro.vold.umsdirtyratio=20 \
-    wifi.interface=wlan0
+    ro.vold.umsdirtyratio=20
